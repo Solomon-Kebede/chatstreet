@@ -6,3 +6,6 @@ def index(request):
 
 def chatRoom(request):
     return render(request, 'room.html')
+
+def login(request):
+    return render(request, 'registration/login.html')
