@@ -6,6 +6,7 @@ body {
 	padding: 0;
 	background-color: white;
 	font-family: "lato", sans-serif;
+	color: white;
 }
 
 .signupForm {
@@ -13,14 +14,16 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background-color: rgb(125, 125, 125);
 }
 
 .form {
-	background-color: white;
+	/*background-color: white;*/
 	width: 400px;
 	border-radius: 8px;
 	padding: 20px 40px;
 	box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+	background-color: rgb(83, 77, 77);
 }
 
 .inputField {
@@ -36,8 +39,86 @@ body {
 	left: 0px;
 	height: 100%;
 	width: 100%;
-	border: 1px solid #DADCE0;
+	border: 1px solid #dadce0;
 	border-radius: 7px;
 	font-size: 16px;
 	padding: 0 20px;
+	outline: none;
+	background: none;
+	z-index: 1;
+	color: white;
+	font-weight: bold;
+}
+
+::placeholder {
+	color: transparent;
+}
+
+label {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	padding: 0 4px;
+	/*background-color: white;*/
+	color: #dadce0;
+	font-size: 16px;
+	transition: 0.5s;
+	z-index: 0;
+	background-color: #534d4d;
+}
+
+
+/* even more css */
+
+.submitBtn {
+  display: block;
+  margin-left: auto;
+  padding: 15px 30px;
+  border: none;
+  background-color: purple;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.submitBtn:hover {
+  background-color: #9867C5;
+  /*transform: translateY(-2px);*/
+}
+
+.input:focus + .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  /*color: purple;*/
+  color: #e1e1e1;
+  background-color: rgb(83, 77, 77);
+}
+
+.input:focus {
+  /*border: 2px solid purple;*/
+  border: 2px solid #f0f0f0;
+}
+
+.input:not(:placeholder-shown)+ .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* property overrides */
+
+#room-name-submit {
+	background-color: #f908d369;
+}
+
+#room-name-submit:active {
+	background-color: #f908d38a;
+	transform: translateY(-2px);
 }
