@@ -22,3 +22,22 @@ body {
 	padding: 20px 40px;
 	box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
 }
+
+.inputField {
+	position: relative;
+	height: 45px;
+	width: 90%;
+	margin-bottom: 17px;
+}
+
+.input {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	border: 1px solid #DADCE0;
+	border-radius: 7px;
+	font-size: 16px;
+	padding: 0 20px;
+}
