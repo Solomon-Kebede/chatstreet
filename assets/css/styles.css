@@ -21,11 +21,15 @@ body, table tr td {
 }
 
 .sidebar-left {
-	width: 27%;
+	width: 20%;
 }
 
 .chats-listing {
 	overflow-y: scroll;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+
 }
 
 .open-left {
