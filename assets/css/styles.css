@@ -152,3 +152,24 @@ body, table tr td {
 	border-radius: 15px;
 	border-top-left-radius: 0px;
 }
+
+/* */
+
+.hover-box {
+	/*background-color: #4f4e4eba;*/
+	/*border-radius: 5px;*/
+	border-top: 1px #605555 solid;
+	/* background-color: #747a80; */
+	border-bottom: 1px #1c1b1b solid;
+}
+
+.hover-box:hover {
+	background-color: : #747a80;
+	/*background-color: blue;*/
+	background-color: #4f4e4eba;
+	border-radius: 5px;
+}
+
+.chat {
+	padding: 20px;
+}
