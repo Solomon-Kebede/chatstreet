@@ -13,54 +13,83 @@
 	<div class="sidebar-left">
 		<div class="toolbar">
 			<div class="user-options">
-				<h1>User Options</h1>
+				<h1 style="margin-left: 55px;">Contacts</h1>
 			</div>
 		</div>
-		<div class="chats-listing">
-			<!--
-			<table id="chat-001">
+		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
+			<button class="openbtn" onclick="openNav()">☰</button>
+			<script>
+				function openNav() {
+				  document.getElementById("mySidebar").style.width = "250px";
+				  document.getElementById("main").style.marginLeft = "250px";
+				}
+
+				function closeNav() {
+				  document.getElementById("mySidebar").style.width = "0";
+				  document.getElementById("main").style.marginLeft= "0";
+				}
+			</script>
+			<table id="chat-001" style="padding: 20px;">
 				<tr>
 					<td rule="Thumbnail">Thumbnail 01</td>
 					<td rule="contact-info">Contact Info 1</td>
 				</tr>
 			</table>
-			<table id="chat-002">
+			<table id="chat-002" style="padding: 20px;">
 				<tr>
 					<td>Thumbnail 02</td>
 					<td>Contact Info 2</td>
 				</tr>
 			</table>
-			<table id="chat-003">
+			<table id="chat-003" style="padding: 20px;">
 				<tr>
 					<td>Thumbnail 03</td>
 					<td>Contact Info 3</td>
 				</tr>
 			</table>
-			<table id="chat-004">
+			<table id="chat-004" style="padding: 20px;">
 				<tr>
 					<td>Thumbnail 04</td>
 					<td>Contact Info 4</td>
 				</tr>
 			</table>
-			<table id="chat-005">
+			<table id="chat-005" style="padding: 20px;">
 				<tr>
 					<td>Thumbnail 05</td>
 					<td>Contact Info 5</td>
 				</tr>
 			</table>
-			<table id="chat-006">
+			<table id="chat-006" style="padding: 20px;">
 				<tr>
 					<td>Thumbnail 06</td>
 					<td>Contact Info 6</td>
 				</tr>
 			</table>
-			<table id="chat-007">
+			<table id="chat-007" style="padding: 20px;">
 				<tr>
 					<td>Thumbnail 07</td>
 					<td>Contact Info 7</td>
 				</tr>
 			</table>
-		-->
+			<table id="chat-007" style="padding: 20px;">
+				<tr>
+					<td>Thumbnail 08</td>
+					<td>Contact Info 8</td>
+				</tr>
+			</table>
+			<table id="chat-007" style="padding: 20px;">
+				<tr>
+					<td>Thumbnail 09</td>
+					<td>Contact Info 9</td>
+				</tr>
+			</table>
+			<table id="chat-007" style="padding: 20px;">
+				<tr>
+					<td>Thumbnail 10</td>
+					<td>Contact Info 10</td>
+				</tr>
+			</table>
+
 		</div>
 	</div>
 	<div class="open-left">
@@ -251,5 +280,58 @@
 	</div>
 
 	</div>
+	<body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed="">
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body>
 </body>
 </html>
