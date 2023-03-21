@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chat Text Editor</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/ambiance.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+<body>
+	<div class="sidebar-left">
+		<div class="toolbar">
+			<div class="user-options">
+				<h1>User Options</h1>
+			</div>
+		</div>
+		<div class="chats-listing">
+			<!--
+			<table id="chat-001">
+				<tr>
+					<td rule="Thumbnail">Thumbnail 01</td>
+					<td rule="contact-info">Contact Info 1</td>
+				</tr>
+			</table>
+			<table id="chat-002">
+				<tr>
+					<td>Thumbnail 02</td>
+					<td>Contact Info 2</td>
+				</tr>
+			</table>
+			<table id="chat-003">
+				<tr>
+					<td>Thumbnail 03</td>
+					<td>Contact Info 3</td>
+				</tr>
+			</table>
+			<table id="chat-004">
+				<tr>
+					<td>Thumbnail 04</td>
+					<td>Contact Info 4</td>
+				</tr>
+			</table>
+			<table id="chat-005">
+				<tr>
+					<td>Thumbnail 05</td>
+					<td>Contact Info 5</td>
+				</tr>
+			</table>
+			<table id="chat-006">
+				<tr>
+					<td>Thumbnail 06</td>
+					<td>Contact Info 6</td>
+				</tr>
+			</table>
+			<table id="chat-007">
+				<tr>
+					<td>Thumbnail 07</td>
+					<td>Contact Info 7</td>
+				</tr>
+			</table>
+		-->
+		</div>
+	</div>
+	<div class="open-left">
+		‹
+	</div>
+	<!-- <div class="open-left" state="open" style="opacity: 0.1;">‹</div> -->
+	<div class="container">
+		<div class="chat-info">
+			<table>
+				<tr>
+					<td>Chat Thumbnail</td>
+					<td>Chat User Name</td>
+					<td>User Avaialablity</td>
+					<td>Extra Options</td>
+				</tr>
+			</table>
+		</div>
+
+	<div class="CodeMirror cm-s-ambiance CodeMirror-wrap CodeMirror-overlayscroll messaages-area">
+		<div class="messages-section">
+			<div style="overflow-y: scroll;height: calc(70vh);">
+				<div class="message-log">
+					<!-- Messages START -->
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<!-- Messages STOP -->
+					<!-- Messages START -->
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<!-- Messages STOP -->
+				</div>
+			</div>
+			<!-- <div class="message-tools">
+				<input type="text" name="">
+			</div> -->
+			<div class="message-tools">
+                <div class="emojis"></div>
+                <div class="input-box">
+                  <input type="text" id="text-message-box">
+                </div>
+                <div class="search-btn-custom">
+                  <!-- <button>Submit</button> -->
+                  <i class="iconfont icon-post"></i>
+                </div>
+            </div>
+		</div>
+	</div>
+
+	</div>
+</body>
+</html>
