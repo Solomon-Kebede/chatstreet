@@ -19,10 +19,37 @@ body, table tr td {
 	font-size: 12px;
 	font-family: arial,sans-serif;
 }
-
+/*The side bar */
 .sidebar-left {
-	width: 20%;
-}
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	background-color: transparent;
+	overflow-x: hidden;
+	transition: 0.5s;
+ }
+
+ .sidebar-left.collapsed {
+	width: 0;
+ }
+
+ .openbtn {
+	font-size: 30px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	color: #666;
+	padding: 10px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+ }
+
+ .openbtn:hover {
+	color: white;
+ }
+ /*---------------------*/
 
 .chats-listing {
 	overflow-y: scroll;
@@ -153,23 +180,15 @@ body, table tr td {
 	border-top-left-radius: 0px;
 }
 
-/* */
-
+/*side bar*/
 .hover-box {
-	/*background-color: #4f4e4eba;*/
-	/*border-radius: 5px;*/
+	background-color: transparent;
+	border-radius: 15px;
 	border-top: 1px #605555 solid;
 	/* background-color: #747a80; */
 	border-bottom: 1px #1c1b1b solid;
 }
 
 .hover-box:hover {
-	background-color: : #747a80;
-	/*background-color: blue;*/
-	background-color: #4f4e4eba;
-	border-radius: 5px;
-}
-
-.chat {
-	padding: 20px;
+	background-color: #506880;
 }
