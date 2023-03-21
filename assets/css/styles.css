@@ -143,6 +143,8 @@ body, table tr td {
 /* overides */
 
 .message-tools {
-	/* background-image: url("../../assets/img/bg001.jpeg"); */
 	background-color: #cc750029;
+	background-color: #77746f4a;
+	border-radius: 15px;
+	border-top-left-radius: 0px;
 }
