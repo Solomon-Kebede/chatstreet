@@ -1,0 +1,377 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chat Street</title>
+    <link rel="stylesheet" href="{% static 'css/chatroom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ambiance.css' %}">
+    <link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+    <link rel="stylesheet" href="{% static 'css/iconfont.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+	<div class="sidebar-left" id="sidebar">
+		<div class="toolbar">
+			<div class="user-options">
+				<h1 style="margin-left: 55px;">Contacts</h1>
+			</div>
+		</div>
+		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 01</td>
+						<td rule="contact-info">Contact Info 1</td>
+					</tr>
+				</tbody></table>
+		    </div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 02</td>
+						<td rule="contact-info">Contact Info 2</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 03</td>
+						<td rule="contact-info">Contact Info 3</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 04</td>
+						<td rule="contact-info">Contact Info 4</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 05</td>
+						<td rule="contact-info">Contact Info 5</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 06</td>
+						<td rule="contact-info">Contact Info 6</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 07</td>
+						<td rule="contact-info">Contact Info 7</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 08</td>
+						<td rule="contact-info">Contact Info 8</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 09</td>
+						<td rule="contact-info">Contact Info 9</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 10</td>
+						<td rule="contact-info">Contact Info 10</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 11</td>
+						<td rule="contact-info">Contact Info 11</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
+				<tbody>
+					<tr>
+						<td rule="Thumbnail">Thumbnail 12</td>
+						<td rule="contact-info">Contact Info 12</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+
+
+
+		</div>
+	</div>
+	<div class="open-left">
+		<button class="openbtn" onclick="toggleSidebar()">☰</button>
+	</div>
+	<!-- <div class="open-left" state="open" style="opacity: 0.1;">‹</div> -->
+	<div class="container">
+		<div class="chat-info">
+			<table>
+				<tr>
+					<td>Chat Thumbnail</td>
+					<td>Chat User Name</td>
+					<td>User Avaialablity</td>
+					<td>Extra Options</td>
+				</tr>
+			</table>
+		</div>
+
+	<div class="CodeMirror cm-s-ambiance CodeMirror-wrap CodeMirror-overlayscroll messaages-area">
+		<div class="messages-section">
+			<div style="overflow-y: scroll;height: calc(70vh);">
+				<div class="message-log">
+					<!-- Messages START -->
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<!-- Messages STOP -->
+					<!-- Messages START -->
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<!-- Messages STOP -->
+				</div>
+			</div>
+			<!-- <div class="message-tools">
+				<input type="text" name="">
+			</div> -->
+			<div class="message-tools">
+                <div class="emojis"></div>
+                <div class="input-box">
+                  <input type="text" id="text-message-box">
+                </div>
+                <div class="search-btn-custom">
+                  <!-- <button>Submit</button> -->
+                  <i class="iconfont icon-post"></i>
+                </div>
+            </div>
+		</div>
+	</div>
+
+	</div>
+	<body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed="">
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+<!--The collapse button handler-->
+<script>
+	function toggleSidebar() {
+		var sidebar = document.getElementById("sidebar");
+		sidebar.classList.toggle("collapsed");
+	}
+
+</script>
+<!-- ************ -->
+
+</body>
+</body>
+</html>
