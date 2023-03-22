@@ -272,14 +272,12 @@
 		var sidebar = document.getElementById("sidebar");
 		sidebar.classList.toggle("collapsed");
 	}
-	function openRoom() {
-		document.querySelector('.container').style.display = 'block';
-	}
+
 	function closeRoom() {
 		document.querySelector('.container').style.display = 'none';
 	}
 	closeRoom();
-	document.querySelector(".hover-box").onclick = function openRoom() {
+	document.querySelector(".chats-listing").onclick = function openRoom() {
 		document.querySelector('.container').style.display = 'block';
 	}
 </script>
