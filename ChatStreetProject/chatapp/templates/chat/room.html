@@ -51,14 +51,14 @@
 					<div class="thumbnails-right">
 						<div class="top-right-chat">
 							<div class="top-right-chat-left">
-								<h3>Barack Obama</h3>
+								<h3>Solomon Kebede</h3>
 							</div>
 							<div class="top-right-chat-right">
-								<p>2:53 PM</p>
+								<p>3:00 PM</p>
 							</div>
 						</div>
 						<div class="bottom-right-chat">
-							<p> Hello, how's it going?</p>
+							<p> I'm waiting for the reply?</p>
 						</div>
 					</div>
 		</div>
@@ -72,14 +72,14 @@
 					<div class="thumbnails-right">
 						<div class="top-right-chat">
 							<div class="top-right-chat-left">
-								<h3>Barack Obama</h3>
+								<h3>AdulMuizz</h3>
 							</div>
 							<div class="top-right-chat-right">
-								<p>2:53 PM</p>
+								<p>8:00 PM</p>
 							</div>
 						</div>
 						<div class="bottom-right-chat">
-							<p> Hello, how's it going?</p>
+							<p> I'm busy </p>
 						</div>
 					</div>
 		</div>
@@ -93,14 +93,14 @@
 					<div class="thumbnails-right">
 						<div class="top-right-chat">
 							<div class="top-right-chat-left">
-								<h3>Barack Obama</h3>
+								<h3>Nati Dessie</h3>
 							</div>
 							<div class="top-right-chat-right">
-								<p>2:53 PM</p>
+								<p>4:00 PM</p>
 							</div>
 						</div>
 						<div class="bottom-right-chat">
-							<p> Hello, how's it going?</p>
+							<p> Join meet please...</p>
 						</div>
 					</div>
 		</div>
@@ -118,7 +118,7 @@
 	<div class="container">
 		<div class="chat-info">
 			<div style="margin-left: 20px;">
-				<div class="chat-user-container" id="chat-003" style="margin-left: 40px;">
+				<div class="chat-user-container" id="chatinfoheader" style="margin-left: 40px;">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
 					</div>
@@ -310,7 +310,11 @@
 					let timeStamp = contactInfo[2];
 					let message = contactInfo[4];
 
-					document.querySelector('.chat')
+					console.log(document.querySelector('.chat-info'))
+					document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-left > h3').innerText = name;
+					document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-right > p').innerText = 'last seen ' + timeStamp;
+
+
 				}
 			});
 		});
