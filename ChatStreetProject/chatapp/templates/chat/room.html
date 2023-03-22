@@ -117,14 +117,24 @@
 	<!-- <div class="open-left" state="open" style="opacity: 0.1;">‹</div> -->
 	<div class="container">
 		<div class="chat-info">
-			<table>
-				<tr>
-					<td>Chat Thumbnail</td>
-					<td>Chat User Name</td>
-					<td>User Avaialablity</td>
-					<td>Extra Options</td>
-				</tr>
-			</table>
+			<div class="hover-box" style="margin-left: 20px;">
+				<div class="chat-user-container" id="chat-003">
+					<div class="thumbnail">
+						<img src="/static/img/img02.jpeg" class="thumbnail">
+					</div>
+					<div class="thumbnails-right">
+						<div class="top-right-chat" style="flex-direction: column;">
+							<div class="top-right-chat-left">
+								<h3>Barack Obama</h3>
+							</div>
+							<div class="top-right-chat-right" style="margin-left: -35px;">
+								<p>last seen 2:53 PM </p>
+							</div>
+						</div>
+
+					</div>
+		</div>
+		    </div>
 		</div>
 
 	<div class="CodeMirror cm-s-ambiance CodeMirror-wrap CodeMirror-overlayscroll messaages-area">
@@ -195,6 +205,7 @@
 
       chatSocket.onmessage = function(e) {
           const data = JSON.parse(e.data);
+		  console.log(data);
           // document.querySelector('#chat-log').value += (data.message + '\n');
           document.querySelector(".message-log").append(messageSelf(data.message));
           nodes = document.querySelectorAll('.message');
@@ -291,17 +302,27 @@
 					}
 					node.style.backgroundColor = "rgba(51, 47, 55, 0.93)";
 					node.style.border = "2px solid #886565";
-					node.style.borderRadius = "3px";
+					node.style.borderRadius = "25px";
 					selectedNode = node;
-				}
-				else {
-					console.log('hello');
+
+					let contactInfo = selectedNode.innerText.split('\n')
+					let name = contactInfo[0];
+					let timeStamp = contactInfo[2];
+					let message = contactInfo[4];
+
+					document.querySelector('.chat')
 				}
 			});
 		});
-		// document.querySelector('.sidebar-left').style.width= "35%";
+		//document.querySelector('.sidebar-left').style.width= "35%";
 	}
 	// window.addEventListener('click', (e) => console.log(e.target));
+
+	function updateChatHeader() {
+		const message = document.querySelector('#sidebar > div.chats-listing > div:nth-child(2)').innerText
+
+
+	}
 </script>
 <!-- ************ -->
 
