@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chat Street</title>
+    <link rel="stylesheet" href="{% static 'css/chatroom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ambiance.css' %}">
+    <link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+    <link rel="stylesheet" href="{% static 'css/iconfont.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+	<div class="sidebar-left" id="sidebar">
+		<div class="toolbar">
+			<div class="user-options">
+				<h1 style="margin-left: 55px;">Contacts</h1>
+			</div>
+		</div>
+
+		<!--side bar contacte start-->
+		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
+			<div class="hover-box"style="padding: 20px;" id="hhh">
+				<div class="chat-user-container" id="chat-001">
+					<div class="thumbnail">
+						<img src="/static/img/img02.jpeg" class="thumbnail">
+					</div>
+					<div class="thumbnails-right">
+						<div class="top-right-chat">
+							<div class="top-right-chat-left">
+								<h3>Barack Obama</h3>
+							</div>
+							<div class="top-right-chat-right">
+								<p>2:53 PM</p>
+							</div>
+						</div>
+						<div class="bottom-right-chat">
+							<p> Hello, how's it going?</p>
+						</div>
+					</div>
+		</div>
+		    </div>
+
+			<div class="hover-box"style="padding: 20px;" id="hhh">
+				<div class="chat-user-container" id="chat-002">
+					<div class="thumbnail">
+						<img src="/static/img/img02.jpeg" class="thumbnail">
+					</div>
+					<div class="thumbnails-right">
+						<div class="top-right-chat">
+							<div class="top-right-chat-left">
+								<h3>Barack Obama</h3>
+							</div>
+							<div class="top-right-chat-right">
+								<p>2:53 PM</p>
+							</div>
+						</div>
+						<div class="bottom-right-chat">
+							<p> Hello, how's it going?</p>
+						</div>
+					</div>
+		</div>
+		    </div>
+
+			<div class="hover-box"style="padding: 20px;">
+				<div class="chat-user-container" id="chat-003">
+					<div class="thumbnail">
+						<img src="/static/img/img02.jpeg" class="thumbnail">
+					</div>
+					<div class="thumbnails-right">
+						<div class="top-right-chat">
+							<div class="top-right-chat-left">
+								<h3>Barack Obama</h3>
+							</div>
+							<div class="top-right-chat-right">
+								<p>2:53 PM</p>
+							</div>
+						</div>
+						<div class="bottom-right-chat">
+							<p> Hello, how's it going?</p>
+						</div>
+					</div>
+		</div>
+		    </div>
+
+			<div class="hover-box"style="padding: 20px;">
+				<div class="chat-user-container" id="chat-001">
+					<div class="thumbnail">
+						<img src="/static/img/img02.jpeg" class="thumbnail">
+					</div>
+					<div class="thumbnails-right">
+						<div class="top-right-chat">
+							<div class="top-right-chat-left">
+								<h3>Barack Obama</h3>
+							</div>
+							<div class="top-right-chat-right">
+								<p>2:53 PM</p>
+							</div>
+						</div>
+						<div class="bottom-right-chat">
+							<p> Hello, how's it going?</p>
+						</div>
+					</div>
+		</div>
+		    </div>
+
+
+
+		</div>
+
+	</div>
+	<div class="open-left">
+		<button class="openbtn" onclick="toggleSidebar()">☰</button>
+	</div>
+	<!-- <div class="open-left" state="open" style="opacity: 0.1;">‹</div> -->
+	<div class="container">
+		<div class="chat-info">
+			<table>
+				<tr>
+					<td>Chat Thumbnail</td>
+					<td>Chat User Name</td>
+					<td>User Avaialablity</td>
+					<td>Extra Options</td>
+				</tr>
+			</table>
+		</div>
+
+	<div class="CodeMirror cm-s-ambiance CodeMirror-wrap CodeMirror-overlayscroll messaages-area">
+		<div class="messages-section">
+			<div style="overflow-y: scroll;height: calc(70vh);">
+				<div class="message-log">
+					<!-- Messages START -->
+					<div class="message message-you">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<div class="message message-friend">
+						<div class="message-text">
+							<h3>Message</h3>
+						</div>
+					</div>
+					<!-- Messages STOP -->
+					<!-- Messages STOP -->
+				</div>
+			</div>
+			<!-- <div class="message-tools">
+				<input type="text" name="">
+			</div> -->
+			<div class="message-tools">
+                <div class="emojis"></div>
+                <div class="input-box">
+                  <input type="text" id="text-message-box" id="chat-message-input">
+                </div>
+                <div class="search-btn-custom" id="">
+                  <!-- <button>Submit</button> -->
+                  <i class="iconfont icon-post" id="chat-message-submit"></i>
+                </div>
+            </div>
+		</div>
+	</div>
+
+	</div>
+	<!-- <body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed=""> -->
+	<!-- New -->
+	<script>
+	function messageSelf(message, id) {
+	  let headNode = document.createElement("div"); 
+	  let subNode = document.createElement("div");
+	  let textNode = document.createElement("h3");
+	  textNode.innerText = message;
+
+	  let headAttrs = document.createAttribute("class");
+	  // headAttrs.value = "message message-you";
+	  headAttrs.value = "message message-friend";
+	  let subAttrs = document.createAttribute("class");
+	  subAttrs.value = "message-text";
+	  subNode.setAttributeNode(subAttrs);
+	  subNode.append(textNode);
+	  headNode.setAttributeNode(headAttrs);
+	  headNode.append(subNode);
+	  return headNode;
+	}
+	</script>
+
+	<!-- Test -->
+  <!-- <textarea id="chat-log" cols="100" rows="20"></textarea><br> -->
+  {{ room_name|json_script:"room-name" }}
+  <script>
+      const roomName = JSON.parse(document.getElementById('room-name').textContent);
+
+      const chatSocket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomName}/`);
+
+      chatSocket.onmessage = function(e) {
+          const data = JSON.parse(e.data);
+          // document.querySelector('#chat-log').value += (data.message + '\n');
+          document.querySelector(".message-log").append(messageSelf(data.message));
+          nodes = document.querySelectorAll('.message');
+          lastNode = nodes[nodes.length- 1];
+          lastNode.scrollIntoView();
+		  document.querySelector('.chat-info').scrollIntoView();
+
+      };
+
+      chatSocket.onclose = function(e) {
+          console.error('Chat socket closed unexpectedly');
+      };
+
+      document.querySelector('#text-message-box').focus();
+      document.querySelector('#text-message-box').onkeyup = function(e) {
+          if (e.keyCode === 13) {  // enter, return
+              document.querySelector('#chat-message-submit').click();
+          }
+      };
+
+      document.querySelector('#chat-message-submit').onclick = function(e) {
+          const messageInputDom = document.querySelector('#text-message-box');
+          const message = messageInputDom.value;
+          chatSocket.send(JSON.stringify({
+              'message': message
+          }));
+          messageInputDom.value = '';
+      };
+  </script>
+
+<!-- Code injected by live-server -->
+<script>
+	/*
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			// var address = protocol + window.location.host + window.location.pathname + 'ws';
+			var address = `${protocol}${window.location.host}ws/chat/${window.location.pathname}`;
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>*/
+</script>
+
+<!--The collapse button handler-->
+<script>
+	function toggleSidebar() {
+		var sidebar = document.getElementById("sidebar");
+		sidebar.classList.toggle("collapsed");
+	}
+
+	function closeRoom() {
+		document.querySelector('.container').style.display = 'none';
+	}
+	closeRoom();
+	document.querySelector(".chats-listing").onclick = function openRoom() {
+		document.querySelector('.container').style.display = 'block';
+	}
+</script>
+<!-- ************ -->
+
+</body>
+</body>
+</html>
