@@ -19,11 +19,7 @@
 				<h1 style="margin-left: 55px;">Contacts</h1>
 			</div>
 		</div>
-
-		<!--side bar contacte start-->
-		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
-			<div class="hover-box"style="padding: 20px;">
-				<div class="chat-user-container" id="chat-001">
+		<div class="chat-user-container" id="chat-001">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
 					</div>
@@ -41,73 +37,24 @@
 						</div>
 					</div>
 		</div>
-		    </div>
 
-			<div class="hover-box"style="padding: 20px;">
-				<div class="chat-user-container" id="chat-001">
-					<div class="thumbnail">
-						<img src="/static/img/img02.jpeg" class="thumbnail">
+		<div class="chat-user-container" id="chat-001">
+			<div class="thumbnail">
+				<img src="/static/img/img02.jpeg" class="thumbnail">
+			</div>
+			<div class="thumbnails-right">
+				<div class="top-right-chat">
+					<div class="top-right-chat-left">
+						<h3>Barack Obama</h3>
 					</div>
-					<div class="thumbnails-right">
-						<div class="top-right-chat">
-							<div class="top-right-chat-left">
-								<h3>Barack Obama</h3>
-							</div>
-							<div class="top-right-chat-right">
-								<p>2:53 PM</p>
-							</div>
-						</div>
-						<div class="bottom-right-chat">
-							<p> Hello, how's it going?</p>
-						</div>
+					<div class="top-right-chat-right">
+						<p>2:53 PM</p>
 					</div>
-		</div>
-		    </div>
-
-			<div class="hover-box"style="padding: 20px;">
-				<div class="chat-user-container" id="chat-001">
-					<div class="thumbnail">
-						<img src="/static/img/img02.jpeg" class="thumbnail">
-					</div>
-					<div class="thumbnails-right">
-						<div class="top-right-chat">
-							<div class="top-right-chat-left">
-								<h3>Barack Obama</h3>
-							</div>
-							<div class="top-right-chat-right">
-								<p>2:53 PM</p>
-							</div>
-						</div>
-						<div class="bottom-right-chat">
-							<p> Hello, how's it going?</p>
-						</div>
-					</div>
-		</div>
-		    </div>
-
-			<div class="hover-box"style="padding: 20px;">
-				<div class="chat-user-container" id="chat-001">
-					<div class="thumbnail">
-						<img src="/static/img/img02.jpeg" class="thumbnail">
-					</div>
-					<div class="thumbnails-right">
-						<div class="top-right-chat">
-							<div class="top-right-chat-left">
-								<h3>Barack Obama</h3>
-							</div>
-							<div class="top-right-chat-right">
-								<p>2:53 PM</p>
-							</div>
-						</div>
-						<div class="bottom-right-chat">
-							<p> Hello, how's it going?</p>
-						</div>
-					</div>
-		</div>
-		    </div>
-
-
-
+				</div>
+				<div class="bottom-right-chat">
+					<p> Hello, how's it going?</p>
+				</div>
+			</div>
 		</div>
 
 	</div>
@@ -143,6 +90,7 @@
 						</div>
 					</div>
 					<!-- Messages STOP -->
+					<!-- Messages START -->
 					<!-- Messages STOP -->
 				</div>
 			</div>
@@ -200,8 +148,7 @@
           nodes = document.querySelectorAll('.message');
           lastNode = nodes[nodes.length- 1];
           lastNode.scrollIntoView();
-		  document.querySelector('.chat-info').scrollIntoView();
-
+          document.querySelector('.chat-info').scrollIntoView();
       };
 
       chatSocket.onclose = function(e) {
@@ -272,12 +219,7 @@
 		var sidebar = document.getElementById("sidebar");
 		sidebar.classList.toggle("collapsed");
 	}
-	function openRoom() {
-		document.querySelector('.container').style.display = 'block';
-	}
-	function closeRoom() {
-		document.querySelector('.container').style.display = 'none';
-	}
+
 </script>
 <!-- ************ -->
 

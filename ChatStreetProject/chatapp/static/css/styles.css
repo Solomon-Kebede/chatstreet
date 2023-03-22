@@ -218,11 +218,13 @@ body, table tr td {
 
 .top-right-chat {
 	display: flex;
+	padding-top: 10px;
 }
 
 .thumbnails-right {
 	display: flex;
 	flex-direction: column;
+	margin-left: 10px;
 }
 
 .top-right-chat-right {
