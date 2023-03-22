@@ -310,21 +310,82 @@
 			<div class="message-tools">
                 <div class="emojis"></div>
                 <div class="input-box">
-                  <input type="text" id="text-message-box">
+                  <input type="text" id="text-message-box" id="chat-message-input">
                 </div>
-                <div class="search-btn-custom">
+                <div class="search-btn-custom" id="">
                   <!-- <button>Submit</button> -->
-                  <i class="iconfont icon-post"></i>
+                  <i class="iconfont icon-post" id="chat-message-submit"></i>
                 </div>
             </div>
 		</div>
 	</div>
 
 	</div>
-	<body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed="">
+	<!-- <body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed=""> -->
+	<!-- New -->
+	<script>
+	function messageSelf(message, id) {
+	  let headNode = document.createElement("div"); 
+	  let subNode = document.createElement("div");
+	  let textNode = document.createElement("h3");
+	  textNode.innerText = message;
+
+	  let headAttrs = document.createAttribute("class");
+	  // headAttrs.value = "message message-you";
+	  headAttrs.value = "message message-friend";
+	  let subAttrs = document.createAttribute("class");
+	  subAttrs.value = "message-text";
+	  subNode.setAttributeNode(subAttrs);
+	  subNode.append(textNode);
+	  headNode.setAttributeNode(headAttrs);
+	  headNode.append(subNode);
+	  return headNode;
+	}
+	</script>
+
+	<!-- Test -->
+  <!-- <textarea id="chat-log" cols="100" rows="20"></textarea><br> -->
+  {{ room_name|json_script:"room-name" }}
+  <script>
+      const roomName = JSON.parse(document.getElementById('room-name').textContent);
+
+      const chatSocket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomName}/`);
+
+      chatSocket.onmessage = function(e) {
+          const data = JSON.parse(e.data);
+          // document.querySelector('#chat-log').value += (data.message + '\n');
+          document.querySelector(".message-log").append(messageSelf(data.message));
+          nodes = document.querySelectorAll('.message');
+          lastNode = nodes[nodes.length- 1];
+          lastNode.scrollIntoView()
+          // lastNode.focus();
+
+      };
+
+      chatSocket.onclose = function(e) {
+          console.error('Chat socket closed unexpectedly');
+      };
+
+      document.querySelector('#text-message-box').focus();
+      document.querySelector('#text-message-box').onkeyup = function(e) {
+          if (e.keyCode === 13) {  // enter, return
+              document.querySelector('#chat-message-submit').click();
+          }
+      };
+
+      document.querySelector('#chat-message-submit').onclick = function(e) {
+          const messageInputDom = document.querySelector('#text-message-box');
+          const message = messageInputDom.value;
+          chatSocket.send(JSON.stringify({
+              'message': message
+          }));
+          messageInputDom.value = '';
+      };
+  </script>
 
 <!-- Code injected by live-server -->
 <script>
+	/*
 	// <![CDATA[  <-- For SVG support
 	if ('WebSocket' in window) {
 		(function () {
@@ -344,7 +405,8 @@
 				}
 			}
 			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			// var address = protocol + window.location.host + window.location.pathname + 'ws';
+			var address = `${protocol}${window.location.host}ws/chat/${window.location.pathname}`;
 			var socket = new WebSocket(address);
 			socket.onmessage = function (msg) {
 				if (msg.data == 'reload') window.location.reload();
@@ -359,7 +421,7 @@
 	else {
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
-	// ]]>
+	// ]]>*/
 </script>
 
 <!--The collapse button handler-->
