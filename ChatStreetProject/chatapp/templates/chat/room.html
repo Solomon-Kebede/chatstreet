@@ -19,14 +19,37 @@
 				<h1 style="margin-left: 55px;">Contacts</h1>
 			</div>
 		</div>
-		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
-			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
-				<tbody>
-					<tr>
-						<td rule="Thumbnail">Thumbnail 01</td>
-						<td rule="contact-info">Contact Info 1</td>
-					</tr>
-				</tbody></table>
+		<div class="chats-listing" style="height: calc(70vh);">
+			<div class="hover-box">
+				<div class="chat-user-container" id="chat-001">
+					<div class="thumbnail">
+						<img src="{% static 'img/img01.jpg' %}" class="thumbnail">
+					</div>
+					<div class="thumbnails-right">
+						<div class="top-right-chat">
+							<div class="top-right-chat-left">
+								<h3>Barack Obama</h3>
+							</div>
+							<div class="top-right-chat-right">
+								<p>2:53 PM</p>
+							</div>
+						</div>
+						<div class="bottom-right-chat">
+							<p>Hello, how's it going?</p>
+						</div>
+					</div>
+				</div>
+				<!-- <table id="chat-001" style="padding: 20px;">
+					<tbody>
+						<tr>
+							<td rule="Thumbnail">
+								Thumbnail 01
+								<div><img src="{% static 'img/img01.jpg' %}"></div>
+							</td>
+							<td rule="contact-info">Contact Info 1</td>
+						</tr>
+					</tbody>
+				</table> -->
 		    </div>
 
 			<div class="hover-box"><table id="chat-001" style="padding: 20px;">
@@ -357,9 +380,8 @@
           document.querySelector(".message-log").append(messageSelf(data.message));
           nodes = document.querySelectorAll('.message');
           lastNode = nodes[nodes.length- 1];
-          lastNode.scrollIntoView()
-          lastNode.focus();
-
+          lastNode.scrollIntoView();
+          document.querySelector('.chat-info').scrollIntoView();
       };
 
       chatSocket.onclose = function(e) {

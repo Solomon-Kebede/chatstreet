@@ -23,7 +23,8 @@ body, table tr td {
 .sidebar-left {
 	top: 0;
 	left: 0;
-	width: 250px;
+	/*width: 250px;*/
+	width: 27%;
 	height: 100%;
 	background-color: transparent;
 	overflow-x: hidden;
@@ -183,12 +184,48 @@ body, table tr td {
 /*side bar*/
 .hover-box {
 	background-color: transparent;
-	border-radius: 15px;
+	/*border-radius: 15px;*/
+	border-radius: 2px;
 	border-top: 1px #605555 solid;
 	/* background-color: #747a80; */
 	border-bottom: 1px #1c1b1b solid;
 }
 
 .hover-box:hover {
-	background-color: #506880;
+	/*background-color: #506880;*/
+	background-color: #242a31;
+}
+
+.hover-box:active {
+	background-color: rgba(51, 47, 55, 0.93);
+	border: 2px solid #886565;
+	border-radius: 3px;
+}
+
+.toolbar {
+	padding: 10px;
+}
+
+.chat-user-container {
+	display: flex;
+}
+
+.thumbnail {
+	height: 85px;
+	border-radius: 50px;
+	border: 2px solid green;
+}
+
+.top-right-chat {
+	display: flex;
+}
+
+.thumbnails-right {
+	display: flex;
+	flex-direction: column;
+}
+
+.top-right-chat-right {
+	position: relative;
+	left: 50%;
 }
