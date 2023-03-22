@@ -22,7 +22,7 @@
 
 		<!--side bar contacte start-->
 		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
-			<div class="hover-box"style="padding: 20px;" id="hhh">
+			<div class="hover-box"style="padding: 20px;">
 				<div class="chat-user-container" id="chat-001">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
@@ -43,7 +43,7 @@
 		</div>
 		    </div>
 
-			<div class="hover-box"style="padding: 20px;" id="hhh">
+			<div class="hover-box"style="padding: 20px;">
 				<div class="chat-user-container" id="chat-002">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
@@ -279,7 +279,26 @@
 	closeRoom();
 	document.querySelector(".chats-listing").onclick = function openRoom() {
 		document.querySelector('.container').style.display = 'block';
+		let hoverBoxElements = document.querySelectorAll('.hover-box');
+		var selectedNode = null;
+		hoverBoxElements.forEach((node) => {
+			document.body.addEventListener('click', function( event ){
+				if(node.contains( event.target ) ){
+					if (selectedNode !== null) {
+						selectedNode.style.backgroundColor = null;
+						selectedNode.style.border = null;
+						selectedNode.style.borderRadius = null;
+					}
+					node.style.backgroundColor = "rgba(51, 47, 55, 0.93)";
+					node.style.border = "2px solid #886565";
+					node.style.borderRadius = "3px";
+					selectedNode = node;
+				}
+			});
+		});
+		document.querySelector('.sidebar-left').style.width= "35%";
 	}
+	// window.addEventListener('click', (e) => console.log(e.target));
 </script>
 <!-- ************ -->
 
