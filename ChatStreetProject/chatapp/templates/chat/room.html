@@ -207,10 +207,13 @@
           const data = JSON.parse(e.data);
 		  console.log(data);
           // document.querySelector('#chat-log').value += (data.message + '\n');
-          document.querySelector(".message-log").append(messageSelf(data.message));
-          nodes = document.querySelectorAll('.message');
-          lastNode = nodes[nodes.length- 1];
-          lastNode.scrollIntoView();
+          if (data.message !== '') {
+          	document.querySelector(".message-log").append(messageSelf(data.message));
+	          nodes = document.querySelectorAll('.message');
+	          lastNode = nodes[nodes.length- 1];
+	          lastNode.scrollIntoView();
+          }
+          
 		  document.querySelector('.chat-info').scrollIntoView();
 
       };
