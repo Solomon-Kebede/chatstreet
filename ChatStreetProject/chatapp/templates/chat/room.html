@@ -176,23 +176,35 @@
 	<!-- <body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed=""> -->
 	<!-- New -->
 	<script>
-	function messageSelf(message, id) {
-	  let headNode = document.createElement("div"); 
-	  let subNode = document.createElement("div");
-	  let textNode = document.createElement("h3");
-	  textNode.innerText = message;
+		/* uuid generator */
+		function UUIDv4() {
+		  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+		    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+		  );
+		}
+		// console.log(UUIDv4());
+		var thisClient = UUIDv4();
+		function messagePosition(message, id) {
+		  let headNode = document.createElement("div"); 
+		  let subNode = document.createElement("div");
+		  let textNode = document.createElement("h3");
+		  textNode.innerText = message;
 
-	  let headAttrs = document.createAttribute("class");
-	  // headAttrs.value = "message message-you";
-	  headAttrs.value = "message message-friend";
-	  let subAttrs = document.createAttribute("class");
-	  subAttrs.value = "message-text";
-	  subNode.setAttributeNode(subAttrs);
-	  subNode.append(textNode);
-	  headNode.setAttributeNode(headAttrs);
-	  headNode.append(subNode);
-	  return headNode;
-	}
+		  let headAttrs = document.createAttribute("class");
+		  // console.log(thisClient);
+		  if (id === thisClient) {
+		  	headAttrs.value = "message message-you";
+		  } else if (id !== thisClient) {
+		  	headAttrs.value = "message message-friend";
+		  }
+		  let subAttrs = document.createAttribute("class");
+		  subAttrs.value = "message-text";
+		  subNode.setAttributeNode(subAttrs);
+		  subNode.append(textNode);
+		  headNode.setAttributeNode(headAttrs);
+		  headNode.append(subNode);
+		  return headNode;
+		}
 	</script>
 
 	<!-- Test -->
@@ -208,7 +220,7 @@
 		  console.log(data);
           // document.querySelector('#chat-log').value += (data.message + '\n');
           if (data.message !== '') {
-          	document.querySelector(".message-log").append(messageSelf(data.message));
+          	document.querySelector(".message-log").append(messagePosition(data.message, data.client));
 	          nodes = document.querySelectorAll('.message');
 	          lastNode = nodes[nodes.length- 1];
 	          lastNode.scrollIntoView();
@@ -233,7 +245,8 @@
           const messageInputDom = document.querySelector('#text-message-box');
           const message = messageInputDom.value;
           chatSocket.send(JSON.stringify({
-              'message': message
+              'message': message,
+              'client': thisClient,
           }));
           messageInputDom.value = '';
       };
