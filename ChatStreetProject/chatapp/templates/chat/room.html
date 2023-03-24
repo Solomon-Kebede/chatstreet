@@ -144,13 +144,22 @@
 					<!-- Messages START -->
 					<div class="message message-you">
 						<div class="message-text">
-							<h3>Message</h3>
+							<!-- <h3>Message</h3> -->
+							<p>Message</p>
+						</div>
+						<div class="message-timestamp">
+							<p>10:15:17 PM</p>
 						</div>
 					</div>
 					<div class="message message-friend">
 						<div class="message-text">
-							<h3>Message</h3>
+							<!-- <h3>Message</h3> -->
+							<p>Message</p>
 						</div>
+						<div class="message-timestamp">
+							<p>11:01:47 PM</p>
+						</div>
+					</div>
 					</div>
 					<!-- Messages STOP -->
 					<!-- Messages STOP -->
@@ -184,10 +193,11 @@
 		}
 		// console.log(UUIDv4());
 		var thisClient = UUIDv4();
-		function messagePosition(message, id) {
+		function messagePosition(message, id, timestampStr) {
 		  let headNode = document.createElement("div"); 
 		  let subNode = document.createElement("div");
-		  let textNode = document.createElement("h3");
+		  // let textNode = document.createElement("h3");
+		  let textNode = document.createElement("p");
 		  textNode.innerText = message;
 
 		  let headAttrs = document.createAttribute("class");
@@ -203,6 +213,17 @@
 		  subNode.append(textNode);
 		  headNode.setAttributeNode(headAttrs);
 		  headNode.append(subNode);
+		  /* new update */
+		  let timestampDiv = document.createElement("div");
+		  let timestampText = document.createElement("p");
+		  // timestampText.innerText = timestampStr;
+		  timestampText.innerText = new Date(parseInt(timestampStr)).toLocaleString().split(', ')[1];
+		  let timestampDivAttrs = document.createAttribute("class");
+		  timestampDivAttrs.value = "message-timestamp";
+		  timestampDiv.setAttributeNode(timestampDivAttrs);
+		  timestampDiv.append(timestampText);
+		  headNode.append(timestampDiv);
+		  /***/
 		  return headNode;
 		}
 	</script>
@@ -220,7 +241,7 @@
 		  console.log(data);
           // document.querySelector('#chat-log').value += (data.message + '\n');
           if (data.message !== '') {
-          	document.querySelector(".message-log").append(messagePosition(data.message, data.client));
+          	document.querySelector(".message-log").append(messagePosition(data.message, data.client, data.timestamp));
 	          nodes = document.querySelectorAll('.message');
 	          lastNode = nodes[nodes.length- 1];
 	          lastNode.scrollIntoView();
@@ -247,6 +268,7 @@
           chatSocket.send(JSON.stringify({
               'message': message,
               'client': thisClient,
+              'timestamp': ((new Date).getTime()).toString(),
           }));
           messageInputDom.value = '';
       };

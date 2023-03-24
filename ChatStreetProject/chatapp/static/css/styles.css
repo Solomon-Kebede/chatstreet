@@ -153,10 +153,15 @@ body, table tr td {
 	padding: 1px;
 	border-radius: 20px;
 	margin-top: 20px;
+	line-height: 1em;
 }
 
 .message-text {
 	margin-left: 10px;
+}
+
+.message-text > p {
+	font-weight: bolder;
 }
 
 .message-you {
@@ -230,4 +235,9 @@ body, table tr td {
 .top-right-chat-right {
 	position: relative;
 	left: 50%;
+}
+
+.message-timestamp > p {
+	font-size: 9px;
+	padding-left: 58%;
 }
