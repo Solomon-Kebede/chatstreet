@@ -1,17 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Chat Street</title>
-    <link rel="stylesheet" href="{% static 'css/chatroom.css' %}">
-    <link rel="stylesheet" href="{% static 'css/ambiance.css' %}">
-    <link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
-    <link rel="stylesheet" href="{% static 'css/iconfont.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'css/chatroom.css' %}">
+	<link rel="stylesheet" href="{% static 'css/ambiance.css' %}">
+	<link rel="stylesheet" href="{% static 'css/codemirror.css' %}">
+	<link rel="stylesheet" href="{% static 'css/iconfont.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 </head>
+
 <body>
 	<div class="sidebar-left" id="sidebar">
 		<div class="toolbar">
@@ -22,7 +24,7 @@
 
 		<!--side bar contacte start-->
 		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
-			<div class="hover-box"style="padding: 20px;">
+			<div class="hover-box" style="padding: 20px;">
 				<div class="chat-user-container" id="chat-001">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
@@ -40,10 +42,10 @@
 							<p> Hello, how's it going?</p>
 						</div>
 					</div>
-		</div>
-		    </div>
+				</div>
+			</div>
 
-			<div class="hover-box"style="padding: 20px;">
+			<div class="hover-box" style="padding: 20px;">
 				<div class="chat-user-container" id="chat-002">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
@@ -61,10 +63,10 @@
 							<p> I'm waiting for the reply?</p>
 						</div>
 					</div>
-		</div>
-		    </div>
+				</div>
+			</div>
 
-			<div class="hover-box"style="padding: 20px;">
+			<div class="hover-box" style="padding: 20px;">
 				<div class="chat-user-container" id="chat-003">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
@@ -82,10 +84,10 @@
 							<p> I'm busy </p>
 						</div>
 					</div>
-		</div>
-		    </div>
+				</div>
+			</div>
 
-			<div class="hover-box"style="padding: 20px;">
+			<div class="hover-box" style="padding: 20px;">
 				<div class="chat-user-container" id="chat-001">
 					<div class="thumbnail">
 						<img src="/static/img/img02.jpeg" class="thumbnail">
@@ -103,8 +105,8 @@
 							<p> Join meet please...</p>
 						</div>
 					</div>
-		</div>
-		    </div>
+				</div>
+			</div>
 
 
 
@@ -133,33 +135,33 @@
 						</div>
 
 					</div>
-		</div>
-		    </div>
+				</div>
+			</div>
 		</div>
 
-	<div class="CodeMirror cm-s-ambiance CodeMirror-wrap CodeMirror-overlayscroll messaages-area">
-		<div class="messages-section">
-			<div style="overflow-y: scroll;height: calc(70vh);">
-				<div class="message-log">
-					<!-- Messages START -->
-					<div class="message message-you">
-						<div class="message-text">
-							<!-- <h3>Message</h3> -->
-							<p>Message</p>
+		<div class="CodeMirror cm-s-ambiance CodeMirror-wrap CodeMirror-overlayscroll messaages-area">
+			<div class="messages-section">
+				<div style="overflow-y: scroll;height: calc(70vh);">
+					<div class="message-log">
+						<!-- Messages START -->
+						<div class="message message-you">
+							<div class="message-text">
+								<!-- <h3>Message</h3> -->
+								<p>Message</p>
+							</div>
+							<div class="message-timestamp">
+								<p>10:15:17 PM</p>
+							</div>
 						</div>
-						<div class="message-timestamp">
-							<p>10:15:17 PM</p>
+						<div class="message message-friend">
+							<div class="message-text">
+								<!-- <h3>Message</h3> -->
+								<p>Message</p>
+							</div>
+							<div class="message-timestamp">
+								<p>11:01:47 PM</p>
+							</div>
 						</div>
-					</div>
-					<div class="message message-friend">
-						<div class="message-text">
-							<!-- <h3>Message</h3> -->
-							<p>Message</p>
-						</div>
-						<div class="message-timestamp">
-							<p>11:01:47 PM</p>
-						</div>
-					</div>
 					</div>
 					<!-- Messages STOP -->
 					<!-- Messages STOP -->
@@ -169,15 +171,15 @@
 				<input type="text" name="">
 			</div> -->
 			<div class="message-tools">
-                <div class="emojis"></div>
-                <div class="input-box">
-                  <input type="text" id="text-message-box" id="chat-message-input">
-                </div>
-                <div class="search-btn-custom" id="">
-                  <!-- <button>Submit</button> -->
-                  <i class="iconfont icon-post" id="chat-message-submit"></i>
-                </div>
-            </div>
+				<div class="emojis"></div>
+				<div class="input-box">
+					<input type="text" id="text-message-box" id="chat-message-input">
+				</div>
+				<div class="search-btn-custom" id="">
+					<!-- <button>Submit</button> -->
+					<i class="iconfont icon-post" id="chat-message-submit"></i>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -187,187 +189,188 @@
 	<script>
 		/* uuid generator */
 		function UUIDv4() {
-		  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-		    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-		  );
+			return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+				(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+			);
 		}
 		// console.log(UUIDv4());
 		var thisClient = UUIDv4();
 		function messagePosition(message, id, timestampStr) {
-		  let headNode = document.createElement("div"); 
-		  let subNode = document.createElement("div");
-		  // let textNode = document.createElement("h3");
-		  let textNode = document.createElement("p");
-		  textNode.innerText = message;
+			let headNode = document.createElement("div");
+			let subNode = document.createElement("div");
+			// let textNode = document.createElement("h3");
+			let textNode = document.createElement("p");
+			textNode.innerText = message;
 
-		  let headAttrs = document.createAttribute("class");
-		  // console.log(thisClient);
-		  if (id === thisClient) {
-		  	headAttrs.value = "message message-you";
-		  } else if (id !== thisClient) {
-		  	headAttrs.value = "message message-friend";
-		  }
-		  let subAttrs = document.createAttribute("class");
-		  subAttrs.value = "message-text";
-		  subNode.setAttributeNode(subAttrs);
-		  subNode.append(textNode);
-		  headNode.setAttributeNode(headAttrs);
-		  headNode.append(subNode);
-		  /* new update */
-		  let timestampDiv = document.createElement("div");
-		  let timestampText = document.createElement("p");
-		  // timestampText.innerText = timestampStr;
-		  timestampText.innerText = new Date(parseInt(timestampStr)).toLocaleString().split(', ')[1];
-		  let timestampDivAttrs = document.createAttribute("class");
-		  timestampDivAttrs.value = "message-timestamp";
-		  timestampDiv.setAttributeNode(timestampDivAttrs);
-		  timestampDiv.append(timestampText);
-		  headNode.append(timestampDiv);
-		  /***/
-		  return headNode;
+			let headAttrs = document.createAttribute("class");
+			// console.log(thisClient);
+			if (id === thisClient) {
+				headAttrs.value = "message message-you";
+			} else if (id !== thisClient) {
+				headAttrs.value = "message message-friend";
+			}
+			let subAttrs = document.createAttribute("class");
+			subAttrs.value = "message-text";
+			subNode.setAttributeNode(subAttrs);
+			subNode.append(textNode);
+			headNode.setAttributeNode(headAttrs);
+			headNode.append(subNode);
+			/* new update */
+			let timestampDiv = document.createElement("div");
+			let timestampText = document.createElement("p");
+			// timestampText.innerText = timestampStr;
+			timestampText.innerText = new Date(parseInt(timestampStr)).toLocaleString().split(', ')[1];
+			let timestampDivAttrs = document.createAttribute("class");
+			timestampDivAttrs.value = "message-timestamp";
+			timestampDiv.setAttributeNode(timestampDivAttrs);
+			timestampDiv.append(timestampText);
+			headNode.append(timestampDiv);
+			/***/
+			return headNode;
 		}
 	</script>
 
 	<!-- Test -->
-  <!-- <textarea id="chat-log" cols="100" rows="20"></textarea><br> -->
-  {{ room_name|json_script:"room-name" }}
-  <script>
-      const roomName = JSON.parse(document.getElementById('room-name').textContent);
+	<!-- <textarea id="chat-log" cols="100" rows="20"></textarea><br> -->
+	{{ room_name|json_script:"room-name" }}
+	<script>
+		const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
-      const chatSocket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomName}/`);
+		const chatSocket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomName}/`);
 
-      chatSocket.onmessage = function(e) {
-          const data = JSON.parse(e.data);
-		  console.log(data);
-          // document.querySelector('#chat-log').value += (data.message + '\n');
-          if (data.message !== '') {
-          	document.querySelector(".message-log").append(messagePosition(data.message, data.client, data.timestamp));
-	          nodes = document.querySelectorAll('.message');
-	          lastNode = nodes[nodes.length- 1];
-	          lastNode.scrollIntoView();
-          }
-          
-		  document.querySelector('.chat-info').scrollIntoView();
-
-      };
-
-      chatSocket.onclose = function(e) {
-          console.error('Chat socket closed unexpectedly');
-      };
-
-      document.querySelector('#text-message-box').focus();
-      document.querySelector('#text-message-box').onkeyup = function(e) {
-          if (e.keyCode === 13) {  // enter, return
-              document.querySelector('#chat-message-submit').click();
-          }
-      };
-
-      document.querySelector('#chat-message-submit').onclick = function(e) {
-          const messageInputDom = document.querySelector('#text-message-box');
-          const message = messageInputDom.value;
-          chatSocket.send(JSON.stringify({
-              'message': message,
-              'client': thisClient,
-              'timestamp': ((new Date).getTime()).toString(),
-          }));
-          messageInputDom.value = '';
-      };
-  </script>
-
-<!-- Code injected by live-server -->
-<script>
-	/*
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
+		chatSocket.onmessage = function (e) {
+			const data = JSON.parse(e.data);
+			console.log(data);
+			// document.querySelector('#chat-log').value += (data.message + '\n');
+			if (data.message !== '') {
+				document.querySelector(".message-log").append(messagePosition(data.message, data.client, data.timestamp));
+				nodes = document.querySelectorAll('.message');
+				lastNode = nodes[nodes.length - 1];
+				lastNode.scrollIntoView();
 			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			// var address = protocol + window.location.host + window.location.pathname + 'ws';
-			var address = `${protocol}${window.location.host}ws/chat/${window.location.pathname}`;
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+
+			document.querySelector('.chat-info').scrollIntoView();
+
+		};
+
+		chatSocket.onclose = function (e) {
+			console.error('Chat socket closed unexpectedly');
+		};
+
+		document.querySelector('#text-message-box').focus();
+		document.querySelector('#text-message-box').onkeyup = function (e) {
+			if (e.keyCode === 13) {  // enter, return
+				document.querySelector('#chat-message-submit').click();
 			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>*/
-</script>
+		};
 
-<!--The collapse button handler-->
-<script>
-	function toggleSidebar() {
-		var sidebar = document.getElementById("sidebar");
-		sidebar.classList.toggle("collapsed");
-	}
+		document.querySelector('#chat-message-submit').onclick = function (e) {
+			const messageInputDom = document.querySelector('#text-message-box');
+			const message = messageInputDom.value;
+			chatSocket.send(JSON.stringify({
+				'message': message,
+				'client': thisClient,
+				'timestamp': ((new Date).getTime()).toString(),
+			}));
+			messageInputDom.value = '';
+		};
+	</script>
 
-	function closeRoom() {
-		document.querySelector('.container').style.display = 'none';
-	}
-	closeRoom();
-	document.querySelector(".chats-listing").onclick = function openRoom() {
-		document.querySelector('.container').style.display = 'block';
-		let hoverBoxElements = document.querySelectorAll('.hover-box');
-		var selectedNode = null;
-		hoverBoxElements.forEach((node) => {
-			document.body.addEventListener('click', function( event ){
-				if(node.contains( event.target ) ){
-					if (selectedNode !== null) {
-						selectedNode.style.backgroundColor = null;
-						selectedNode.style.border = null;
-						selectedNode.style.borderRadius = null;
+	<!-- Code injected by live-server -->
+	<script>
+		/*
+		// <![CDATA[  <-- For SVG support
+		if ('WebSocket' in window) {
+			(function () {
+				function refreshCSS() {
+					var sheets = [].slice.call(document.getElementsByTagName("link"));
+					var head = document.getElementsByTagName("head")[0];
+					for (var i = 0; i < sheets.length; ++i) {
+						var elem = sheets[i];
+						var parent = elem.parentElement || head;
+						parent.removeChild(elem);
+						var rel = elem.rel;
+						if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+							var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+							elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+						}
+						parent.appendChild(elem);
 					}
-					node.style.backgroundColor = "rgba(51, 47, 55, 0.93)";
-					node.style.border = "2px solid #886565";
-					node.style.borderRadius = "25px";
-					selectedNode = node;
-
-					let contactInfo = selectedNode.innerText.split('\n')
-					let name = contactInfo[0];
-					let timeStamp = contactInfo[2];
-					let message = contactInfo[4];
-
-					console.log(document.querySelector('.chat-info'))
-					document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-left > h3').innerText = name;
-					document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-right > p').innerText = 'last seen ' + timeStamp;
-
-
 				}
+				var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+				// var address = protocol + window.location.host + window.location.pathname + 'ws';
+				var address = `${protocol}${window.location.host}ws/chat/${window.location.pathname}`;
+				var socket = new WebSocket(address);
+				socket.onmessage = function (msg) {
+					if (msg.data == 'reload') window.location.reload();
+					else if (msg.data == 'refreshcss') refreshCSS();
+				};
+				if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+					console.log('Live reload enabled.');
+					sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+				}
+			})();
+		}
+		else {
+			console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+		}
+		// ]]>*/
+	</script>
+
+	<!--The collapse button handler-->
+	<script>
+		function toggleSidebar() {
+			var sidebar = document.getElementById("sidebar");
+			sidebar.classList.toggle("collapsed");
+		}
+
+		function closeRoom() {
+			document.querySelector('.container').style.display = 'none';
+		}
+		closeRoom();
+		document.querySelector(".chats-listing").onclick = function openRoom() {
+			document.querySelector('.container').style.display = 'block';
+			let hoverBoxElements = document.querySelectorAll('.hover-box');
+			var selectedNode = null;
+			hoverBoxElements.forEach((node) => {
+				document.body.addEventListener('click', function (event) {
+					if (node.contains(event.target)) {
+						if (selectedNode !== null) {
+							selectedNode.style.backgroundColor = null;
+							selectedNode.style.border = null;
+							selectedNode.style.borderRadius = null;
+						}
+						node.style.backgroundColor = "rgba(51, 47, 55, 0.93)";
+						node.style.border = "2px solid #886565";
+						node.style.borderRadius = "25px";
+						selectedNode = node;
+
+						let contactInfo = selectedNode.innerText.split('\n')
+						let name = contactInfo[0];
+						let timeStamp = contactInfo[2];
+						let message = contactInfo[4];
+
+						console.log(document.querySelector('.chat-info'))
+						document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-left > h3').innerText = name;
+						document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-right > p').innerText = 'last seen ' + timeStamp;
+
+
+					}
+				});
 			});
-		});
-		//document.querySelector('.sidebar-left').style.width= "35%";
-	}
-	// window.addEventListener('click', (e) => console.log(e.target));
+			//document.querySelector('.sidebar-left').style.width= "35%";
+		}
+		// window.addEventListener('click', (e) => console.log(e.target));
 
-	function updateChatHeader() {
-		const message = document.querySelector('#sidebar > div.chats-listing > div:nth-child(2)').innerText
+		function updateChatHeader() {
+			const message = document.querySelector('#sidebar > div.chats-listing > div:nth-child(2)').innerText
 
 
-	}
-</script>
-<!-- ************ -->
+		}
+	</script>
+	<!-- ************ -->
 
 </body>
 </body>
+
 </html>
