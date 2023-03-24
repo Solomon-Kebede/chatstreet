@@ -21,7 +21,7 @@ def signupaccount(request):
                                             password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('index')
+                return redirect('loginaccount')
             except IntegrityError:
                 return render(request,
                               'signupaccount.html',

@@ -1,26 +1,47 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="card mb-3">
-    <div class="row g-0">
-        <div>
-            <div class="card-body">
-                <h5 class="card-title">Sign Up</h5>
-                <p class="card-text">
-                    {% if error %}
-                    <div class="alert alert-danger mt-3" role="alert">
-                    {{ error }}
-                    </div>
+                    {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'logoutaccount' %}">
+                        Logout ({{ user.username }})
+                    </a>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'loginaccount' %}"">
+                        Login
+                    </a>
+
                     {% endif %}
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary">
-                            Sign Up
-                        </button>
-                    </form>
-                    </p>
                 </div>
             </div>
         </div>
+    </nav>
+    <div class="container">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div>
+                    <div class="card-body">
+                        <h5 class="card-title">Sign Up</h5>
+                        <p class="card-text">
+                            {% if error %}
+                            <div class="alert alert-danger mt-3" role="alert">
+                            {{ error }}
+                            </div>
+                            {% endif %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-primary">
+                                    Sign Up
+                                </button>
+                            </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock content %}
     </div>
-    {% endblock content %}
+</body>
+
+</html>
+
+
