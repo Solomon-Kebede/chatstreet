@@ -354,20 +354,35 @@
 						console.log(document.querySelector('.chat-info'))
 						document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-left > h3').innerText = name;
 						document.querySelector('#chatinfoheader > div.thumbnails-right > div > div.top-right-chat-right > p').innerText = 'last seen ' + timeStamp;
-
-
 					}
 				});
 			});
 			//document.querySelector('.sidebar-left').style.width= "35%";
 		}
 		// window.addEventListener('click', (e) => console.log(e.target));
-
-		function updateChatHeader() {
-			const message = document.querySelector('#sidebar > div.chats-listing > div:nth-child(2)').innerText
-
-
-		}
+		/* typing effect */
+		var statusArea = document.querySelector('#chatinfoheader > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > p:nth-child(1)');
+		var defaultState = statusArea.innerText;
+		document.querySelector('#text-message-box').addEventListener(
+			"focusin", (event) => {
+			statusArea.innerText = 'Online';
+		});
+		document.querySelector('#text-message-box').addEventListener(
+			"focusout", (event) => {
+			statusArea.innerText = defaultState;
+		});
+		document.querySelector('#text-message-box').addEventListener(
+			"keydown", (event) => {
+			statusArea.innerText = 'Typing...';
+		});
+		document.querySelector('#text-message-box').addEventListener(
+			"keyup", (event) => {
+			setTimeout(() => {
+			  statusArea.innerText = 'Online';
+			}, "4000");
+		});
+		/// *** the typing effect has to be sent via websockets *** ///
+		/***/
 	</script>
 	<!-- ************ -->
 

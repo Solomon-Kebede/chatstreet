@@ -149,11 +149,14 @@ body, table tr td {
 
 
 .message {
-	width: 15%;
+	/*width: 15%;*/
 	padding: 1px;
 	border-radius: 20px;
 	margin-top: 20px;
 	line-height: 1em;
+	width: 24%;
+	max-width: 24%;
+	padding-right: 7px;
 }
 
 .message-text {
@@ -240,4 +243,8 @@ body, table tr td {
 .message-timestamp > p {
 	font-size: 9px;
 	padding-left: 58%;
+}
+
+.message > .message-text > p {
+	word-wrap: break-word;
 }
