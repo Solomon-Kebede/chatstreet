@@ -13,23 +13,22 @@ initial-scale=1" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg
-navbar-light bg-light mb-3">
+    <nav class="navbar navbar-expand-lgnavbar-light bg-light mb-3">
         <div class="container">
             <a class="navbar-brand" href="#">Chat Street</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon">☰</span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="#">News</a>
                     {% if user.is_authenticated %}
                     <a class="nav-link" href="{% url 'logoutaccount' %}">
                         Logout ({{ user.username }})
                     </a>
                     {% else %}
-                    <a class="nav-link" href="{% url 'loginaccount' %}"">
+
+                         <a class="nav-link" href="{% url 'loginaccount' %}"">
                         Login
                     </a>
 

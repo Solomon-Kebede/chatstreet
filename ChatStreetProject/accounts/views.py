@@ -1,5 +1,3 @@
-# Create your views here.
-
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserCreateForm
@@ -10,27 +8,32 @@ from django.shortcuts import redirect
 from django.db import IntegrityError
 from django.contrib.auth.forms import AuthenticationForm
 
+
 def signupaccount(request):
     if request.method == 'GET':
-        return render(request, 'signupaccount.html',
-                      {'form':UserCreateForm})
-    else:
-        if request.POST['password1'] == request.POST['password2']:
+        # render sign up page with an empty form
+        form = UserCreateForm()
+        return render(request, 'signupaccount.html', {'form': form})
+    elif request.method == 'POST':
+        # validate sign up form data
+        form = UserCreateForm(request.POST)
+        if form.is_valid():
+            # create a new user instance and save it to the database
             try:
-                user = User.objects.create_user(request.POST['username'],
-                                            password=request.POST['password1'])
+                user = User.objects.create_user(
+                    username=form.cleaned_data['username'],
+                    password=form.cleaned_data['password1']
+                )
                 user.save()
-                login(request, user)
-                return redirect('index')
             except IntegrityError:
-                return render(request,
-                              'signupaccount.html',
-                              {'form':UserCreateForm,
-                               'error':'Username already taken. Choose new username.'})
+                return render(request, 'signupaccount.html',
+                              {'form': form, 'error': 'Username already taken.'})
+            # log in the new user and redirect to the chatroom page
+            login(request, user)
+            return redirect('loginaccount')
         else:
-            return render(request, 'signupaccount.html',
-                          {'form':UserCreateForm,
-                           'error':'Passwords do not match'})
+            # render the sign up page with the invalid form and error messages
+            return render(request, 'signupaccount.html', {'form': form})
 
 def logoutaccount(request):
     logout(request)
@@ -41,6 +44,9 @@ def loginaccount(request):
         return render(request, 'loginaccount.html',
                       {'form':AuthenticationForm})
     else:
+
+        #username = request.POST.get('username')
+
         user = authenticate(request,
                             username=request.POST['username'],
                             password=request.POST['password'])
