@@ -23,3 +23,17 @@ service redis-server start
 pip install -r requirements.txt
 ```
 
+# Start the server
+    
+    python manage.py runserver # windows
+    
+    python3 manage.py runserver # Linux
+
+# Tested on python 3.10 and above
+
+# Contributors:
+          [Natnael M Dessie](https://github.com/Natiman58)
+          
+          [Solomon Kebede Abebe](https://github.com/Solomon-Kebede)
+          
+          [Abdulmuizz Hamzat](https://github.com/Abdulmuizz98)
