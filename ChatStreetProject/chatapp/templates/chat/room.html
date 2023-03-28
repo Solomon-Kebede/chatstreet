@@ -53,28 +53,32 @@
 			{% endfor %}
 		</div>
 
-		<div>WELCOME
+		<div>
 			<div class="hover-box" style="padding: 20px; background-color: rgba(51, 47, 55, 0.93); border: 2px solid rgb(136, 101, 101); border-radius: 25px;">
-						<div class="chat-user-container" id="chat-001">
-							<div class="thumbnail">
-								<img src="/static/img/img02.jpeg" class="thumbnail">
-								<!--<img src="" class="thumbnail">-->
+				WELCOME
+				<div class="chat-user-container" id="chat-001">
+					<div class="thumbnail">
+						<img src="/static/img/img02.jpeg" class="thumbnail">
+						<!--<img src="" class="thumbnail">-->
+					</div>
+					<div class="thumbnails-right">
+						<div class="top-right-chat">
+							<div class="top-right-chat-left">
+								<h2>NM</h2>
 							</div>
-							<div class="thumbnails-right">
-								<div class="top-right-chat">
-									<div class="top-right-chat-left">
-										<h2>{{ user.username }}</h2>
-									</div>
-									<div class="top-right-chat-right">
-										<p></p>
-									</div>
-								</div>
-								<div class="bottom-right-chat">
-									<p> </p>
-								</div>
+							<div class="top-right-chat-right">
+								<p></p>
 							</div>
 						</div>
+						<div class="bottom-right-chat">
+							<p> </p>
+						</div>
 					</div>
+				</div>
+				<div>
+					<button class="logout-button" onclick="location.href='/home/logout/'" style="margin-left: 80%;background-color: revert;border-radius: 10px;font-size: .em;font-family: 'Oswald', sans-serif;position: relative;right: 18px;bottom: 4px;overflow: hidden;letter-spacing: 2px;opacity: 40;/* transition: opacity .45s; *//* -webkit-transition: opacity .35s; */">Logout</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="open-left">
