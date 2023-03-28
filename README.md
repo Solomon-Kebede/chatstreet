@@ -5,3 +5,21 @@
 # It also includes features such as user authentication, authorization and the ability to view chat history.
 
 
+**Make sure redis is installed and redis-server is running (needed to make websockets work)**
+
+Install Redis
+```sh
+sudo apt-get install redis
+```
+
+Start the redis-server
+```sh
+service redis-server start
+```
+
+**Install the requirements**
+
+```sh
+pip install -r requirements.txt
+```
+
