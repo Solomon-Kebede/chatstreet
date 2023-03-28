@@ -25,8 +25,8 @@
 		<!--side bar contacte start-->
 
 		<div class="chats-listing" style="overflow-y: scroll;height: calc(70vh);">
-			{% for user in users%}
-			{% for info in contact_info %}
+			<!--{% for user in users %}
+			{% for info in contact_info %}-->
 			<div class="hover-box" style="padding: 20px;">
 				<div class="chat-user-container" id="chat-001">
 					<div class="thumbnail">
@@ -49,22 +49,38 @@
 					</div>
 				</div>
 			</div>
-			{% endfor %}
-			{% endfor %}
+			<!--{% endfor %}
+			{% endfor %}-->
 		</div>
 
 		<div>
 			<div class="hover-box" style="padding: 20px; background-color: rgba(51, 47, 55, 0.93); border: 2px solid rgb(136, 101, 101); border-radius: 25px;">
-				WELCOME
 				<div class="chat-user-container" id="chat-001">
 					<div class="thumbnail">
-						<img src="/static/img/img02.jpeg" class="thumbnail">
-						<!--<img src="" class="thumbnail">-->
+						<!--<img src="/static/img/img02.jpeg" class="thumbnail"-->
+						<img id="my_bot" src="https://media.istockphoto.com/id/1355813898/de/vektor/online-support-oder-chatbot-konzeptillustration-mit-cartoon-3d-nachrichtenblasencharakter.jpg?s=2048x2048&w=is&k=20&c=4x37mq06MyadgOMYbYAZmrFKe5TamKlh4ibCdwDytzM=" class="thumbnail">
 					</div>
+					<style>
+						.alert {
+							position: absolute;
+							top: 0;
+							left: 100%;
+							transform: translate(-10px, -50%);
+						}
+					</style>
+					<script>
+						const image = document.getElementById('my_bot');
+						image.addEventListener('click', () => {
+							const alertMsg = document.createElement('div');
+							alertMsg.className = 'alert';
+							image.parentNode.insertBefore(alertMsg, image.nextSibling);
+							alert('Hi! There how can i help you today?')
+						})
+					</script>
 					<div class="thumbnails-right">
 						<div class="top-right-chat">
 							<div class="top-right-chat-left">
-								<h2>NM</h2>
+								<h2>Hi 👋 {{ user.username }} Welcome </h2>
 							</div>
 							<div class="top-right-chat-right">
 								<p></p>
@@ -76,7 +92,7 @@
 					</div>
 				</div>
 				<div>
-					<button class="logout-button" onclick="location.href='/home/logout/'" style="margin-left: 80%;background-color: revert;border-radius: 10px;font-size: .em;font-family: 'Oswald', sans-serif;position: relative;right: 18px;bottom: 4px;overflow: hidden;letter-spacing: 2px;opacity: 40;/* transition: opacity .45s; *//* -webkit-transition: opacity .35s; */">Logout</button>
+					<button class="logout-button" onclick="location.href='/home/logout/'" style="margin-left: 80%;background-color: revert;border-radius: 10px;font-size: .em;font-family: 'Oswald', sans-serif;position: relative;right: 18px;bottom: 4px;overflow: hidden;letter-spacing: 2px;opacity: 40;/">Logout</button>
 				</div>
 			</div>
 		</div>
