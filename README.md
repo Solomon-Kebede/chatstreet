@@ -5,6 +5,7 @@
 # It also includes features such as user authentication, authorization and the ability to view chat history.
 
 Requirements: 
+            
             asgiref==3.6.0
             
             asgiref==3.6.0
