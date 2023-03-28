@@ -24,6 +24,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         message = text_data_json.get("message")
         client = text_data_json.get("client")
         timestamp = text_data_json.get("timestamp")
+        message_type = text_data_json.get("messageType")
+        chatroom = text_data_json.get("chatroom")
 
         # Send message to room group
         await self.channel_layer.group_send(
@@ -32,6 +34,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
             "message": message,
             "client": client,
             "timestamp": timestamp,
+            "messageType": message_type,
+            "chatroom": chatroom,
             }
         )
 
@@ -40,10 +44,14 @@ class ChatConsumer(AsyncWebsocketConsumer):
         message = event.get("message")
         client = event.get("client")
         timestamp = event.get("timestamp")
+        message_type = event.get("messageType")
+        chatroom = event.get("chatroom")
 
         # Send message to WebSocket
         await self.send(text_data=json.dumps({
             "message": message,
             "client": client,
             'timestamp': timestamp,
+            "messageType": message_type,
+            "chatroom": chatroom,
             }))

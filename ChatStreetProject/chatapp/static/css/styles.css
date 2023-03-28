@@ -167,6 +167,10 @@ body, table tr td {
 	font-weight: bolder;
 }
 
+.message-sender {
+	color: green;
+}
+
 .message-you {
 	background-color: #5449db69;
 	margin-left: 60%;

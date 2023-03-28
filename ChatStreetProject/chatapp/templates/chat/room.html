@@ -113,7 +113,7 @@
 							<div class="top-right-chat-left">
 								<h3>Barack Obama</h3>
 							</div>
-							<div class="top-right-chat-right" style="margin-left: -35px;">
+							<div class="top-right-chat-right" style="margin-left: -35px;" id="last-seen">
 								<p>last seen 2:53 PM </p>
 							</div>
 						</div>
@@ -179,7 +179,7 @@
 		}
 		// console.log(UUIDv4());
 		var thisClient = UUIDv4();
-		function messagePosition(message, id, timestampStr) {
+		function messagePosition(message, id, timestampStr, username) {
 			let headNode = document.createElement("div");
 			let subNode = document.createElement("div");
 			// let textNode = document.createElement("h3");
@@ -193,6 +193,17 @@
 			} else if (id !== thisClient) {
 				headAttrs.value = "message message-friend";
 			}
+
+			let usernameDiv = document.createElement("div");
+			let usernameText = document.createElement("p");
+			usernameText.innerText = username;
+			let senderNodeClass = document.createAttribute("class")
+			senderNodeClass.value = "message-text message-sender";
+			usernameDiv.setAttributeNode(senderNodeClass);
+			usernameDiv.append(usernameText);
+			headNode.append(usernameDiv);
+
+
 			let subAttrs = document.createAttribute("class");
 			subAttrs.value = "message-text";
 			subNode.setAttributeNode(subAttrs);
@@ -209,6 +220,7 @@
 			timestampDiv.setAttributeNode(timestampDivAttrs);
 			timestampDiv.append(timestampText);
 			headNode.append(timestampDiv);
+
 			/***/
 			return headNode;
 		}
@@ -228,10 +240,17 @@
 			console.log(data);
 			// document.querySelector('#chat-log').value += (data.message + '\n');
 			if (data.message !== '') {
-				document.querySelector(".message-log").append(messagePosition(data.message, data.client, data.timestamp));
-				nodes = document.querySelectorAll('.message');
-				lastNode = nodes[nodes.length - 1];
-				lastNode.scrollIntoView();
+				if (data.messageType === 'keyboard-state') {
+					if (data.chatroom != currentUser){
+						document.querySelector("#last-seen > p").innerText = `${data.chatroom} is ${data.message}`
+					}
+				}
+				if (data.messageType === 'text-message') {
+					document.querySelector(".message-log").append(messagePosition(data.message, data.client, data.timestamp, data.chatroom));
+					nodes = document.querySelectorAll('.message');
+					lastNode = nodes[nodes.length - 1];
+					lastNode.scrollIntoView();
+				}
 			}
 
 			document.querySelector('.chat-info').scrollIntoView();
@@ -249,6 +268,16 @@
 			}
 		};
 
+		function eventSender(socket, message) {
+			socket.send(JSON.stringify({
+				'message': message,
+				'client': thisClient,
+				'timestamp': ((new Date).getTime()).toString(),
+				'messageType': 'keyboard-state',
+				'chatroom': currentUser,
+			}));
+		}
+
 		document.querySelector('#chat-message-submit').onclick = function (e) {
 			const messageInputDom = document.querySelector('#text-message-box');
 			const message = messageInputDom.value;
@@ -256,6 +285,8 @@
 				'message': message,
 				'client': thisClient,
 				'timestamp': ((new Date).getTime()).toString(),
+				'messageType': 'text-message',
+				'chatroom': currentUser,
 			}));
 			messageInputDom.value = '';
 		};
@@ -347,22 +378,31 @@
 		/* typing effect */
 		var statusArea = document.querySelector('#chatinfoheader > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > p:nth-child(1)');
 		var defaultState = statusArea.innerText;
+		var currentUser = "{{ user.username }}";
 		document.querySelector('#text-message-box').addEventListener(
 			"focusin", (event) => {
 			statusArea.innerText = 'Online';
+			// console.log(statusArea.innerText);
+			eventSender(chatSocket, 'online');
 		});
 		document.querySelector('#text-message-box').addEventListener(
 			"focusout", (event) => {
 			statusArea.innerText = defaultState;
+			// console.log(statusArea.innerText);
+			eventSender(chatSocket, 'online');
 		});
 		document.querySelector('#text-message-box').addEventListener(
 			"keydown", (event) => {
 			statusArea.innerText = 'Typing...';
+			// console.log(`${currentUser} is ${statusArea.innerText}`);
+			eventSender(chatSocket, 'typing');
 		});
 		document.querySelector('#text-message-box').addEventListener(
 			"keyup", (event) => {
 			setTimeout(() => {
 			  statusArea.innerText = 'Online';
+			  // console.log(statusArea.innerText);
+			  eventSender(chatSocket, 'online');
 			}, "4000");
 		});
 		/// *** the typing effect has to be sent via websockets *** ///
