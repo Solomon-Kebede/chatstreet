@@ -32,8 +32,8 @@ pip install -r requirements.txt
 # Tested on python 3.10 and above
 
 # Contributors:
-          [Natnael M Dessie](https://github.com/Natiman58)
+   [Natnael M Dessie](https://github.com/Natiman58)
           
-          [Solomon Kebede Abebe](https://github.com/Solomon-Kebede)
+   [Solomon Kebede Abebe](https://github.com/Solomon-Kebede)
           
-          [Abdulmuizz Hamzat](https://github.com/Abdulmuizz98)
+   [Abdulmuizz Hamzat](https://github.com/Abdulmuizz98)
