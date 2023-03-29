@@ -25,7 +25,17 @@ SECRET_KEY = 'django-insecure-sob4f9e05redvd$xl3viu-)($coi30%$e@$dzgt49p_5^de67a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CORS_ALLOWED_ORIGINS = ["http://0.0.0.0:8000", "http://0.0.0.0:8000", "*", "ws://*"]
+
+CORS_ORIGIN_WHITELIST = (
+    '0.0.0.0:8000',
+    'localhost:8000',
+    '*'
+)
+
+CSRF_TRUSTED_ORIGINS = ['http://0.0.0.0:8000', "http://*", "ws://*"]
 
 
 # Application definition
@@ -83,16 +93,6 @@ CHANNEL_LAYERS = {
     },
 }
 
-# Redis
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
-    }
-}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
